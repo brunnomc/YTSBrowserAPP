@@ -11,6 +11,8 @@ interface MovieService {
     @GET(MOVIE_LIST)
     fun getDefaultMovieList(
             @Query("limit") limit : Int,
-            @Query("page") page : Int): Call<MoviesResponse>
+            @Query("page") page : Int,
+            @Query("sort_by") sortBy : String,
+            @Query("genre") genre : String): Call<MoviesResponse>
 
 }
