@@ -9,4 +9,11 @@
     <string name="navigation_menu_about">About</string>
     <string name="navigation_menu_logout">Logout</string>
     <string name="navigation_menu_home">Home</string>
+
+
+    <string name="title_activity_search">SearchActivity</string>
+    <string name="search_view_search">Search…</string>
+    <string name="search_activity_type_to_search">Type to search for movies…</string>
+    <string name="search_activity_no_results">No results available…</string>
+
 </resources>
