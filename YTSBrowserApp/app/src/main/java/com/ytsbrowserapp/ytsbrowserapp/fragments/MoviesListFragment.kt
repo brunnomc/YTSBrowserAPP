@@ -20,20 +20,20 @@ import retrofit2.Response
 
 class MoviesListFragment : Fragment() {
 
-    var movies: List<Movie>? = null
+    var movies: List<Movie> = emptyList()
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val view = inflater!!.inflate(R.layout.fragment_movies_list, container, false)
 
-        var call = ServiceFactory().movieListService().getDefaultMovieList(30, 0, "date_added", "all")
+        var call = ServiceFactory().movieListService().getDefaultMovieList()
 
         call.enqueue(object : Callback<MoviesResponse> {
             override fun onResponse(call: Call<MoviesResponse>?, response: Response<MoviesResponse>?) {
-                movies = response?.body()?.data?.movies
+                movies = response!!.body()!!.data.movies
 
                 recycler_view_movies1.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-                recycler_view_movies1.adapter = MoviesListAdapter(movies!!)
+                recycler_view_movies1.adapter = MoviesListAdapter(movies)
             }
 
             override fun onFailure(call: Call<MoviesResponse>?, t: Throwable?) {
@@ -41,7 +41,7 @@ class MoviesListFragment : Fragment() {
             }
         })
 
-        call = ServiceFactory().movieListService().getDefaultMovieList(30, 0, "date_added", "comedy")
+        call = ServiceFactory().movieListService().getDefaultMovieList(genre = "comedy")
         call.enqueue(object : Callback<MoviesResponse> {
             override fun onResponse(call: Call<MoviesResponse>?, response: Response<MoviesResponse>?) {
                 val movies = response?.body()?.data?.movies

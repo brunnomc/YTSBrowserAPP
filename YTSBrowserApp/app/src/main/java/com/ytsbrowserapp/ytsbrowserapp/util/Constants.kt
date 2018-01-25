@@ -1,8 +1,5 @@
 package com.ytsbrowserapp.ytsbrowserapp.util
 
-/**
- * Created by brunno.conrado on 16/01/2018.
- */
 class Constants {
     companion object {
 
@@ -10,6 +7,7 @@ class Constants {
         const val BASE_URL = "https://yts.am/api/"
         const val API_VERSION = "v2/"
         const val MOVIE_LIST = "list_movies.json"
+        const val MOVIE_DETAILS = "movie_details.json"
 
     }
 }
