@@ -26,6 +26,10 @@
             android:label="@string/title_activity_search"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity
+            android:name=".activity.MovieActivity"
+            android:label="@string/title_activity_movie"
+            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>

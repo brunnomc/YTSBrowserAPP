@@ -16,4 +16,6 @@
     <string name="search_activity_type_to_search">Type to search for movies…</string>
     <string name="search_activity_no_results">No results available…</string>
 
+    <string name="title_activity_movie">MovieActivity</string>
+
 </resources>
