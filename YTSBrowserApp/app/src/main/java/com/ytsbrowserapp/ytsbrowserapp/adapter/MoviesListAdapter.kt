@@ -14,14 +14,13 @@ import com.ytsbrowserapp.ytsbrowserapp.model.Movie
 import kotlinx.android.synthetic.main.list_item_movies.view.*
 
 class MoviesListAdapter(val movies : List<Movie>) : RecyclerView.Adapter<MoviesListAdapter.MoviesListViewHolder>(){
-    var context : Context? = null
+    lateinit var context : Context
 
     override fun getItemCount(): Int {
         return movies.size
     }
 
     override fun onBindViewHolder(holder: MoviesListViewHolder?, position: Int) {
-
         Picasso.with(context).load(movies[position].mediumCoverImage).into(holder!!.cover)
     }
 
@@ -33,14 +32,11 @@ class MoviesListAdapter(val movies : List<Movie>) : RecyclerView.Adapter<MoviesL
 
     inner class MoviesListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var cover = itemView.image_view_thumbnail!!
-
         init {
-
             itemView.setOnClickListener( {
                 val intent = Intent(itemView.context, MovieActivity::class.java)
-                intent.putExtra("movie_id", movies[adapterPosition].id)
-
-                context!!.startActivity(intent)
+                intent.putExtra(MovieActivity.EXTRA_MOVIE_ID, movies[adapterPosition].id)
+                context.startActivity(intent)
             })
         }
     }
