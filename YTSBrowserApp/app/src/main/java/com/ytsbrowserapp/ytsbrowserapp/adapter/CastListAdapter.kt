@@ -12,10 +12,10 @@ import com.ytsbrowserapp.ytsbrowserapp.model.Cast
 import com.ytsbrowserapp.ytsbrowserapp.util.PicassoCircleTransform
 import kotlinx.android.synthetic.main.list_item_cast.view.*
 
-class CastListAdapter (private val cast : List<Cast>) : RecyclerView.Adapter<CastListAdapter.CastListViewHolder>(){
+class CastListAdapter(private val cast: List<Cast>) : RecyclerView.Adapter<CastListAdapter.CastListViewHolder>() {
 
 
-    lateinit var context : Context
+    lateinit var context: Context
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): CastListViewHolder {
         context = parent!!.context
@@ -29,7 +29,7 @@ class CastListAdapter (private val cast : List<Cast>) : RecyclerView.Adapter<Cas
 
     override fun onBindViewHolder(holder: CastListViewHolder, position: Int) {
         holder.name.text = cast[position].name
-        holder.character.text = "as "+ cast[position].characterName
+        holder.character.text = "as " + cast[position].characterName
         if (cast[position].urlSmallImage.isNotEmpty()) {
             Picasso.with(context).load(cast[position].urlSmallImage).transform(PicassoCircleTransform()).into(holder.avatar)
         } else {
@@ -37,7 +37,7 @@ class CastListAdapter (private val cast : List<Cast>) : RecyclerView.Adapter<Cas
         }
     }
 
-    inner class CastListViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
+    inner class CastListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var avatar = itemView.image_view_avatar
         var name = itemView.text_view_actor
         var character = itemView.text_view_character

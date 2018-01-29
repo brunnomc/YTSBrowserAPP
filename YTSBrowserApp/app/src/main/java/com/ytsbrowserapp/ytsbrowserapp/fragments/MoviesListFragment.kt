@@ -33,7 +33,7 @@ class MoviesListFragment : Fragment() {
                 movies = response!!.body()!!.data.movies
 
                 recycler_view_movies1.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-                recycler_view_movies1.adapter = MoviesListAdapter(movies)
+                recycler_view_movies1.adapter = MoviesListAdapter(movies, context)
             }
 
             override fun onFailure(call: Call<MoviesResponse>?, t: Throwable?) {
@@ -47,7 +47,7 @@ class MoviesListFragment : Fragment() {
                 val movies = response?.body()?.data?.movies
 
                 recycler_view_movies2.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-                recycler_view_movies2.adapter = MoviesListAdapter(movies!!)
+                recycler_view_movies2.adapter = MoviesListAdapter(movies!!, context)
 
             }
 

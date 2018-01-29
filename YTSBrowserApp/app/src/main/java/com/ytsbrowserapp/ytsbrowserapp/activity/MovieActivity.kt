@@ -7,7 +7,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.MenuItem
 import com.squareup.picasso.Picasso
 import com.ytsbrowserapp.ytsbrowserapp.R
@@ -42,7 +41,6 @@ class MovieActivity : AppCompatActivity() {
         }
         if (intent != null) {
             movieId = intent.getLongExtra(EXTRA_MOVIE_ID, 0)
-            Log.d("TESTE", "ID: "+movieId)
         }
         setupApiCall()
         showProgress()
@@ -70,6 +68,7 @@ class MovieActivity : AppCompatActivity() {
                 movie = response!!.body()!!.data.movie
                 setupViewComponentsOnResponse(movie)
             }
+
             override fun onFailure(call: Call<MovieResponse>?, t: Throwable?) {}
         })
     }
