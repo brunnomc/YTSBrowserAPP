@@ -6,9 +6,12 @@ import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.MenuItem
 import com.squareup.picasso.Picasso
 import com.ytsbrowserapp.ytsbrowserapp.R
+import com.ytsbrowserapp.ytsbrowserapp.adapter.CastListAdapter
 import com.ytsbrowserapp.ytsbrowserapp.model.Movie
 import com.ytsbrowserapp.ytsbrowserapp.model.MovieResponse
 import com.ytsbrowserapp.ytsbrowserapp.util.Constants
@@ -39,6 +42,7 @@ class MovieActivity : AppCompatActivity() {
         }
         if (intent != null) {
             movieId = intent.getLongExtra(EXTRA_MOVIE_ID, 0)
+            Log.d("TESTE", "ID: "+movieId)
         }
         setupApiCall()
         showProgress()
@@ -88,6 +92,9 @@ class MovieActivity : AppCompatActivity() {
         image_view_play_trailer.setOnClickListener({
             openUrl(Constants.YOUTUBE_VIDEO_URL + movie.ytTrailerCode)
         })
+
+        recycler_view_cast.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        recycler_view_cast.adapter = CastListAdapter(movie.cast)
     }
 
     private fun openUrl(url: String) {
