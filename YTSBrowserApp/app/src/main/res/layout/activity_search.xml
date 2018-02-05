@@ -54,6 +54,12 @@
                 android:text="@string/search_activity_type_to_search"
                 android:textColor="#FFF"
                 android:textSize="24sp" />
+            <ProgressBar
+                android:visibility="gone"
+                android:id="@+id/progress_bar_searching"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"/>
         </RelativeLayout>
     </LinearLayout>
 

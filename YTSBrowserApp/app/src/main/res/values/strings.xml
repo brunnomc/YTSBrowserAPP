@@ -14,9 +14,9 @@
     <string name="search_view_search">Search…</string>
     <string name="search_activity_type_to_search">Type to search for movies…</string>
     <string name="search_activity_no_results">No results available…</string>
+    <string name="search_activity_failure">Please check your internet connection…</string>
 
     <string name="title_activity_movie">MovieActivity</string>
-
 
     <string name="synopsis">Synopsis</string>
     <string name="cast">Cast</string>
