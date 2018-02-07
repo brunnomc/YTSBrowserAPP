@@ -14,9 +14,13 @@ interface MovieService {
     fun getDefaultMovieList(
             @Query("limit") limit: Int = 20,
             @Query("page") page: Int = 1,
-            @Query("sort_by") sortBy: String = "date_added",
+            @Query("quality") quality: String = "all",
+            @Query("minimum_rating") minimumRating: Int = 0,
+            @Query("query_term") queryTerm: String = "",
             @Query("genre") genre: String = "all",
-            @Query("query_term") queryTerm: String = ""): Call<MoviesResponse>
+            @Query("sort_by") sortBy: String = "date_added",
+            @Query("order_by") orderBy: String = "desc",
+            @Query("with_rt_ratings") withRtRatings: Boolean = false): Call<MoviesResponse>
 
     @GET(MOVIE_DETAILS)
     fun getMovieDetails(
