@@ -8,7 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import com.ytsbrowserapp.ytsbrowserapp.R
 import com.ytsbrowserapp.ytsbrowserapp.adapter.MoviesListAdapter
-import com.ytsbrowserapp.ytsbrowserapp.model.Movie
+import com.ytsbrowserapp.ytsbrowserapp.model.MovieDTO
 import com.ytsbrowserapp.ytsbrowserapp.model.MoviesResponse
 import com.ytsbrowserapp.ytsbrowserapp.util.ServiceFactory
 import kotlinx.android.synthetic.main.activity_search.*
@@ -18,7 +18,7 @@ import retrofit2.Response
 
 class SearchActivity : AppCompatActivity() {
 
-    var movies: List<Movie> = emptyList()
+    var movies: List<MovieDTO> = emptyList()
     var call: Call<MoviesResponse> = ServiceFactory().movieListService().getDefaultMovieList(queryTerm = "", limit = 50)
 
     private enum class QueryStatus(val status: String) {

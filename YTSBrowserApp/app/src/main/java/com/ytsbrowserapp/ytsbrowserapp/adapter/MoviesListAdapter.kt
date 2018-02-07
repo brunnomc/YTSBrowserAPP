@@ -13,10 +13,10 @@ import android.widget.Toast
 import com.squareup.picasso.Picasso
 import com.ytsbrowserapp.ytsbrowserapp.R
 import com.ytsbrowserapp.ytsbrowserapp.activity.MovieActivity
-import com.ytsbrowserapp.ytsbrowserapp.model.Movie
+import com.ytsbrowserapp.ytsbrowserapp.model.MovieDTO
 import kotlinx.android.synthetic.main.list_item_movies.view.*
 
-class MoviesListAdapter(val movies: List<Movie>, val context: Context) : RecyclerView.Adapter<MoviesListAdapter.MoviesListViewHolder>() {
+class MoviesListAdapter(val movies: List<MovieDTO>, val context: Context) : RecyclerView.Adapter<MoviesListAdapter.MoviesListViewHolder>() {
     private val metrics = DisplayMetrics()
     private val windowManager = (context.getSystemService(Context.WINDOW_SERVICE) as WindowManager)
     private val coverMinimumWidth = 160
@@ -39,7 +39,7 @@ class MoviesListAdapter(val movies: List<Movie>, val context: Context) : Recycle
         return MoviesListViewHolder(view)
     }
 
-    fun getNumberOfCovers(): Int{
+    fun getNumberOfCovers(): Int {
         val numberOfCovers: Int = (metrics.widthPixels / (coverMinimumWidth * metrics.density)).toInt()
         return if (numberOfCovers < 3) 3 else numberOfCovers
     }
